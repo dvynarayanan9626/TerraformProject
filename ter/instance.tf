@@ -1,9 +1,15 @@
+provider "aws" {
+    region = "us-east-2" 
+}
+resource "aws_s3_bucket" "s3_bucket" {
+    bucket = "divya-terraform-state-file-180326"
+}
 resource "aws_instance" "Linux" {
-  ami           = "resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64"
+  ami           = "ami-0b0b78dcacbab728f"
   instance_type = "t3.micro"
-  key_name = "Ubuntu -01"
-
+depends_on = [aws_s3_bucket.s3_bucket]
   tags = {
     Name = "My_Instance"
   }
+
 }
