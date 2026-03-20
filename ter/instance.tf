@@ -7,7 +7,7 @@ provider "aws" {
 resource "aws_s3_bucket" "s3_bucket" {
     bucket = "divya-terraform-state-file-180326"
 }
-# ec2 instance
+# ec2 instance:
 
 resource "aws_instance" "Linux" {
   ami           = "ami-0b0b78dcacbab728f"
